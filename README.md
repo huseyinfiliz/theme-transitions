@@ -1,10 +1,11 @@
 # Theme Transitions
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![](https://www.huseyinfiliz.com/assets/og/theme-transitions.png)
 
 Smooth, customizable View Transition animations for [Flarum](https://flarum.org) 2 theme switching.
 
 Theme Transitions enhances Flarum 2's built-in color scheme switcher, user settings page, and companion toggle extensions such as [Simple Dark Mode](https://github.com/huseyinfiliz/simple-dark-mode) with hardware-accelerated animations powered by the **View Transitions API** and **Web Animations API**.
+
+![](https://www.huseyinfiliz.com/assets/uploads/2026/12/theme.gif)
 
 ## Features
 
@@ -50,4 +51,4 @@ php flarum cache:clear
 
 ## License
 
-Released under the [MIT License](LICENSE.md).
+[MIT License](LICENSE.md)
