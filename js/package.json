@@ -27,5 +27,8 @@
         "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
     },
     "prettier": "@flarum/prettier-config",
-    "type": "module"
+    "type": "module",
+    "resolutions": {
+        "**/type-coverage-core/minimatch": "6.2.2"
+    }
 }
