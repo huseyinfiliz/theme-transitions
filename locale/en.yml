@@ -1,10 +1,45 @@
 huseyinfiliz-theme-transitions:
     admin:
+        navigation: "Theme Transitions sections"
+
+        tabs:
+            effects: "Effects"
+            customization: "Customization"
+            settings: "Settings"
+            integrations: "Integrations"
+
+        tab_descriptions:
+            effects: "Choose the visual animation played when visitors switch between light and dark themes."
+            effects_info: "Only the active effect's JavaScript chunk is lazy-loaded by visitors. Click any card to select it, or press play to preview live."
+            customization: "Fine-tune animation duration, timing curves, and effect-specific motion parameters."
+            customization_info: "Currently customizing {effect}: {description}"
+            settings: "Control where transitions run and how accessibility and mobile preferences are handled."
+            settings_info: "Theme Transitions hooks into Flarum 2's app.setColorScheme() on user interactions while keeping page loads and OS prefers-color-scheme changes instant. Unsupported browsers fall back cleanly."
+            integrations: "Works seamlessly with Flarum 2's core Theme Switcher, Appearance settings, and companion theme extensions."
+            integrations_info: "Any extension that switches themes through Flarum 2's app.setColorScheme() automatically inherits your configured transition effect and trigger coordinates."
+
+        integrations:
+            status_active: "Active"
+            status_disabled: "Installed (Disabled)"
+            status_not_installed: "Not Installed"
+            simple_dark_mode:
+                title: "Simple Dark Mode"
+                package: "huseyinfiliz/simple-dark-mode"
+                description: "Adds a one-click dark/light theme toggle button right in the forum header for guests and members. Clicking the toggle triggers your configured Theme Transitions animation directly from the button's position."
+                active_note: "Detected and active on this forum. Header toggle clicks automatically trigger your selected transition effect."
+                disabled_note: "Installed on this forum, but currently disabled. Enable it to add a one-click header theme toggle paired with Theme Transitions."
+                install_note: "Not installed yet. Install via Composer to give guests and members a quick header toggle animated by Theme Transitions."
+                open_settings: "Open Settings"
+                open_extension: "Open Extension"
+                github: "GitHub"
+                discuss: "Flarum Discuss"
+                copy_command: "Copy"
+                copied_command: "Copied"
+
         preview:
             title: "Live Transition Preview"
             help: "Tests your current draft configuration right on this page without changing your saved user theme preference."
             button: "Preview Transition"
-            restore: "Restore Theme"
             card_button: "Preview {effect}"
 
         categories:

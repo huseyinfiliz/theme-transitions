@@ -1,49 +1,127 @@
 @import "common.less";
 
+// Segmented tabs and card layout mirror Private Profile's admin design.
 .ThemeTransitionsPage {
-  &-previewCard {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 18px 20px;
-    margin-bottom: 24px;
-    background: var(--control-bg);
-    border: 1px solid var(--control-bg-shaded);
-    border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 24px;
+
+  &-form,
+  &-form > .Form-body {
+    width: inherit;
   }
 
-  &-previewInfo {
-    flex: 1 1 280px;
-    min-width: 0;
+  &-header {
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
 
-    .helpText {
-      margin: 6px 0 0;
+  &-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 8px;
+    background: var(--control-bg);
+
+    > .Button {
+      border: 0;
+      border-radius: 6px;
+      padding: 8px 16px;
+      background: transparent;
+      color: var(--muted-color);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: none;
+      transition: background 150ms ease, color 150ms ease;
+
+      &:hover {
+        color: var(--text-color);
+        background: var(--body-bg);
+      }
+
+      &.active {
+        color: var(--primary-color);
+        background: var(--body-bg);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        font-weight: 700;
+      }
+
+      .icon {
+        margin-right: 8px;
+      }
     }
   }
 
-  &-previewTitle {
+  &-actions {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--heading-color);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-inline-start: auto;
   }
 
-  &-previewMeta {
+  &-content {
+    padding: 24px;
+    border: 1px solid var(--control-bg);
+    border-radius: 8px;
+    background: var(--body-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  &-panel > h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &-introduction {
+    margin: 0 0 20px;
+  }
+
+  &-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 6px;
+    background: var(--control-bg);
+    color: var(--muted-color);
+    font-size: 13px;
+    line-height: 1.6;
+
+    > .icon {
+      margin-top: 3px;
+      color: var(--primary-color);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &-draftBadges {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   &-badge {
     display: inline-flex;
     align-items: center;
     padding: 3px 9px;
-    border-radius: var(--border-radius);
+    border-radius: 6px;
     background: var(--body-bg);
     color: var(--text-color);
     font-size: 12px;
@@ -51,27 +129,8 @@
     border: 1px solid var(--control-bg-shaded);
   }
 
-  &-previewActions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  &-section {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--control-bg);
-  }
-
-  &-sectionTitle {
-    margin: 0 0 14px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--heading-color);
-  }
-
   &-category {
-    margin-top: 16px;
+    margin-top: 20px;
   }
 
   &-categoryTitle {
@@ -85,26 +144,25 @@
 
   &-effectGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
   }
 
   &-effectCard {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     padding: 12px 14px;
-    border-radius: var(--border-radius);
-    border: 2px solid var(--control-bg);
+    border-radius: 6px;
+    border: 1px solid var(--control-bg);
     background: var(--body-bg);
     cursor: pointer;
-    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
     text-align: left;
 
     &:hover {
-      border-color: var(--control-bg-shaded);
-      background: var(--control-bg-light);
+      border-color: var(--primary-color);
     }
 
     &:focus-visible {
@@ -115,7 +173,7 @@
     &.is-active {
       border-color: var(--primary-color);
       background: var(--control-bg-light);
-      box-shadow: 0 0 0 1px var(--primary-color);
+      box-shadow: inset 0 0 0 1px var(--primary-color);
 
       .ThemeTransitionsPage-effectIcon {
         color: var(--primary-color);
@@ -133,9 +191,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: var(--border-radius);
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
     background: var(--control-bg);
     color: var(--muted-color);
     font-size: 13px;
@@ -154,7 +212,7 @@
     width: 26px;
     height: 26px;
     padding: 0;
-    border-radius: var(--border-radius);
+    border-radius: 6px;
     background: var(--control-bg);
     color: var(--muted-color);
     flex-shrink: 0;
@@ -168,8 +226,39 @@
   &-effectDesc {
     margin: 0;
     font-size: 12px;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--muted-color);
+  }
+
+  &-subsection {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--control-bg);
+
+    &:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .Form-group {
+      margin-bottom: 18px;
+    }
+
+    .Form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .Select {
+      max-width: 100%;
+    }
+  }
+
+  &-subsectionTitle {
+    margin: 0 0 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--heading-color);
   }
 
   &-rangeRow {
@@ -211,7 +300,7 @@
     font-size: 12px;
     font-weight: 600;
     padding: 4px 8px;
-    border-radius: var(--border-radius);
+    border-radius: 6px;
 
     &.is-valid {
       background: var(--control-success-bg);
@@ -221,6 +310,203 @@
     &.is-invalid {
       background: var(--control-danger-bg);
       color: var(--control-danger-color);
+    }
+  }
+
+  &-toggleGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  &-toggleCard {
+    padding: 14px 16px;
+    border: 1px solid var(--control-bg);
+    border-radius: 6px;
+    transition: border-color 150ms ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+    }
+
+    .Form-group {
+      margin: 0;
+    }
+
+    .Checkbox {
+      margin: 0;
+    }
+
+    .helpText {
+      margin: 6px 0 0;
+    }
+  }
+
+  &-integrationList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &-integrationCard {
+    padding: 20px;
+    border: 1px solid var(--control-bg);
+    border-radius: 8px;
+    background: var(--body-bg);
+    transition: border-color 150ms ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  }
+
+  &-integrationMain {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &-integrationIcon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-integrationBody {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &-integrationHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  &-integrationTitle {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+
+  &-integrationMeta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    code {
+      font-size: 12px;
+    }
+  }
+
+  &-statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+
+    &.is-active {
+      background: var(--control-success-bg);
+      color: var(--control-success-color);
+    }
+
+    &.is-disabled {
+      background: var(--control-bg);
+      color: var(--muted-color);
+    }
+
+    &.is-not-installed {
+      background: var(--control-bg);
+      color: var(--muted-color);
+      border: 1px solid var(--control-bg-shaded);
+    }
+  }
+
+  &-integrationDesc {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+
+  &-integrationNote {
+    margin: 0 0 14px;
+  }
+
+  &-installBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    background: var(--control-bg);
+
+    code {
+      font-size: 12px;
+      word-break: break-all;
+    }
+  }
+
+  &-integrationActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .Button .icon {
+      margin-right: 6px;
+    }
+  }
+
+  &-saveControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    &-tabs {
+      width: 100%;
+
+      > .Button {
+        flex: 1 1 auto;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+    }
+
+    &-actions {
+      width: 100%;
+    }
+
+    &-content {
+      padding: 16px;
+    }
+
+    &-toggleGrid {
+      grid-template-columns: 1fr;
+    }
+
+    &-integrationMain {
+      flex-direction: column;
     }
   }
 }
