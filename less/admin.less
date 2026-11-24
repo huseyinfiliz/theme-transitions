@@ -1,0 +1,226 @@
+@import "common.less";
+
+.ThemeTransitionsPage {
+  &-previewCard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    background: var(--control-bg);
+    border: 1px solid var(--control-bg-shaded);
+    border-radius: var(--border-radius);
+  }
+
+  &-previewInfo {
+    flex: 1 1 280px;
+    min-width: 0;
+
+    .helpText {
+      margin: 6px 0 0;
+    }
+  }
+
+  &-previewTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--heading-color);
+  }
+
+  &-previewMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  &-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: var(--border-radius);
+    background: var(--body-bg);
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--control-bg-shaded);
+  }
+
+  &-previewActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--control-bg);
+  }
+
+  &-sectionTitle {
+    margin: 0 0 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--heading-color);
+  }
+
+  &-category {
+    margin-top: 16px;
+  }
+
+  &-categoryTitle {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted-color);
+  }
+
+  &-effectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  &-effectCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--control-bg);
+    background: var(--body-bg);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    text-align: left;
+
+    &:hover {
+      border-color: var(--control-bg-shaded);
+      background: var(--control-bg-light);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    &.is-active {
+      border-color: var(--primary-color);
+      background: var(--control-bg-light);
+      box-shadow: 0 0 0 1px var(--primary-color);
+
+      .ThemeTransitionsPage-effectIcon {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  &-effectHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &-effectIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--border-radius);
+    background: var(--control-bg);
+    color: var(--muted-color);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  &-effectName {
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 13px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &-cardPreviewBtn {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: var(--border-radius);
+    background: var(--control-bg);
+    color: var(--muted-color);
+    flex-shrink: 0;
+
+    &:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+  }
+
+  &-effectDesc {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted-color);
+  }
+
+  &-rangeRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 420px;
+
+    input[type='range'] {
+      flex: 1 1 auto;
+      accent-color: var(--primary-color);
+    }
+  }
+
+  &-numberInput {
+    width: 84px;
+    text-align: center;
+  }
+
+  &-unit {
+    font-size: 13px;
+    color: var(--muted-color);
+    font-weight: 600;
+  }
+
+  &-customEasingRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    max-width: 520px;
+
+    .FormControl {
+      flex: 1 1 280px;
+    }
+  }
+
+  &-validity {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+
+    &.is-valid {
+      background: var(--control-success-bg);
+      color: var(--control-success-color);
+    }
+
+    &.is-invalid {
+      background: var(--control-danger-bg);
+      color: var(--control-danger-color);
+    }
+  }
+}

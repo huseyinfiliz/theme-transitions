@@ -1,0 +1,24 @@
+name: Theme Transitions JS
+
+on: [workflow_dispatch, push, pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    uses: flarum/framework/.github/workflows/REUSABLE_frontend.yml@2.x
+    with:
+      enable_bundlewatch: false
+      enable_prettier: true
+      enable_typescript: true
+      enable_tests: true
+      node_version: 22
+
+      frontend_directory: ./js
+      backend_directory: .
+      js_package_manager: yarn
+      cache_dependency_path: ./js/yarn.lock
+      main_git_branch: 2.x
+    secrets:
+      bundlewatch_github_token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}

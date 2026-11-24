@@ -1,0 +1,58 @@
+html.tt-transitioning::view-transition-old(root),
+html.tt-transitioning::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.tt-transitioning::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+html.tt-transitioning::view-transition-group(root) {
+  animation: none;
+}
+
+html.tt-transitioning::view-transition-old(root) {
+  z-index: 1;
+}
+
+html.tt-transitioning::view-transition-new(root) {
+  z-index: 2;
+}
+
+html.tt-transitioning.tt-reverse::view-transition-old(root) {
+  z-index: 2;
+}
+
+html.tt-transitioning.tt-reverse::view-transition-new(root) {
+  z-index: 1;
+}
+
+html.tt-transitioning.tt-perspective::view-transition-image-pair(root) {
+  perspective: 1400px;
+}
+
+html.tt-transitioning::view-transition-group(tt-viewport-anchor),
+html.tt-transitioning::view-transition-image-pair(tt-viewport-anchor),
+html.tt-transitioning::view-transition-old(tt-viewport-anchor),
+html.tt-transitioning::view-transition-new(tt-viewport-anchor) {
+  animation: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+html.tt-no-transition,
+html.tt-no-transition *,
+html.tt-no-transition *::before,
+html.tt-no-transition *::after {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.tt-respect-reduced-motion::view-transition-group(*),
+  html.tt-respect-reduced-motion::view-transition-old(*),
+  html.tt-respect-reduced-motion::view-transition-new(*) {
+    animation: none !important;
+  }
+}
